@@ -1,0 +1,82 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Genre Distribution Over Time",
+    "data": {
+        "url": "https://raw.githubusercontent.com/ChaiXuen/FIT3179_Homework_W9/main/data/movies_cleaned.csv"
+    },
+    "vconcat": [
+      {
+        "width": 600,
+        "height": 400,
+        "mark": {"type": "line", "size": 3},
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "temporal", 
+            "scale": {"domain": {"param": "brush"}},
+            "axis": {"title": "Year"}
+          },
+          "y": {
+            "field": "genre",
+            "type": "nominal",
+            "aggregate": "count",
+            "axis": {"title": "Genre Popularity"}
+          },
+          "color": {
+            "field": "genre",
+            "type": "nominal",
+            "scale": {
+              "range": [
+                "#1f77b4",
+                "#ff7f0e",
+                "#2ca02c",
+                "#d62728",
+                "#9467bd",
+                "#8c564b",
+                "#e377c2",
+                "#7f7f7f",
+                "#bcbd22",
+                "#17becf",
+                "#aec7e8",
+                "#ffbb78",
+                "#98df8a",
+                "#ff9896",
+                "#c5b0d5",
+                "#c49c94",
+                "#f7b6d2",
+                "#c7c7c7" 
+              ]
+            },
+            "legend": {"title": "Genre"}
+          },
+          "tooltip": [
+            {"field": "year", "type": "temporal", "title": "Year", "timeUnit": "year"},
+            {"field": "genre", "type": "nominal", "aggregate": "count", "title" : "Genre Popularity"}
+          ]
+        }
+      },
+      {
+        "width": 600,
+        "height": 60,
+        "mark": "line",
+        "params": [
+            {"name": "brush", 
+            "select": {"type": "interval","encodings": ["x"]}}
+            ],                
+        "encoding": {
+            "x": {
+                "timeUnit": "year",
+                "field": "year",
+                "type": "temporal",
+                "axis":{"title":""}
+              },
+            "y": {
+                "aggregate": "count",
+                "field": "genre",
+                "type": "nominal",
+                "axis": {"tickCount": 3, "grid": false, "title": ""}
+            }
+        }
+      }
+    ]
+  }
