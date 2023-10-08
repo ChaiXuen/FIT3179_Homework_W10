@@ -1,6 +1,10 @@
 #movie_map {
 	display: flex;
+	justify-content: center;
+    align-items: center;
 }
 #stacked_line {
 	display: flex;
+	justify-content: center;
+    align-items: center;
 }
