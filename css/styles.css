@@ -1,11 +1,6 @@
 #movie_map {
 	display: flex;
-	top:100px;
-	bottom: 100px; 
-	left: 200px;
 }
 #stacked_line {
 	display: flex;
-	bottom: 100px; 
-	left: 250px;
 }
